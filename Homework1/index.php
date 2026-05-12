@@ -77,14 +77,27 @@ td {
 </style>
 <body>
     <?php
-    $products = [
-        ["id" => 1, "name" => "AK1", "price" => 2000],
-        ["id" => 2, "name" => "AK2", "price" => 5000],
-        ["id" => 3, "name" => "AK3", "price" => 1000],
-        ["id" => 6, "name" => "AK6", "price" => 15000],
-        ["id" => 7, "name" => "AK7", "price" => 34500],
-        ["id" => 8, "name" => "AK8", "price" => 25000],
-    ];
+    // $products = [
+    //     ["id" => 1, "name" => "AK1", "price" => 2000],
+    //     ["id" => 2, "name" => "AK2", "price" => 5000],
+    //     ["id" => 3, "name" => "AK3", "price" => 1000],
+    //     ["id" => 6, "name" => "AK6", "price" => 15000],
+    //     ["id" => 7, "name" => "AK7", "price" => 34500],
+    //     ["id" => 8, "name" => "AK8", "price" => 25000],
+    // ];
+
+    $username = "AK";
+    $price = "10000";
+    $total = 0;
+    $username1 = "AK1";
+    $price1 = "15000";
+    $total1 = 0;
+    $username2 = "AK2";
+    $price2 = "20000";
+    $total2 = 0;
+    $username3 = "AK3";
+    $price3 = "30000";
+    $total3 = 0;
     ?>
 
     <main class="page">
@@ -102,15 +115,20 @@ td {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($products as $product) : ?>
-                        <tr>
-                            <td><?php echo $product["id"]; ?></td>
-                            <td><?php echo $product["name"]; ?></td>
-                            <td><?php echo number_format($product["price"]); ?></td>
+                 
+                            <td><?php echo $username1; ?></td>
+                            <td><?php echo $price1; ?></td>
+                            <td><?php echo number_format($total1); ?></td>
+                            <td><?php echo $username2; ?></td>
+                            <td><?php echo $price2; ?></td>
+                            <td><?php echo number_format($total2); ?></td>
+                            <td><?php echo $username3; ?></td>
+                            <td><?php echo $price3; ?></td>
+                            <td><?php echo number_format($total3); ?></td>
                             <td><a class="btn edit" href="#">Edit</a></td>
                             <td><a class="btn delete" href="#">Delete</a></td>
                         </tr>
-                    <?php endforeach; ?>
+                 
                 </tbody>
             </table>
         </div>
