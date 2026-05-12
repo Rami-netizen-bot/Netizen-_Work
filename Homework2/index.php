@@ -45,6 +45,18 @@ tbody tr:nth-child(even) {
 td {
   font-weight: 600;
 }
+.report-actions {
+  margin-bottom: 20px;
+}
+.report-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #20242a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
 </style>
 <body>
     <?php
