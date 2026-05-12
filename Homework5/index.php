@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="km">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Product Form Exercise</title>
@@ -16,11 +16,10 @@
 </head>
 <body>
 
-    <h1>លំហាត់អនុវត្តន៍</h1>
-    
+    <h1>Homework Exercise</h1>
     <div class="container">
         <div class="form-section">
-            <h3>Product Form</h3>
+            <h3>Product Input Form</h3>
             <form method="POST">
                 Input Code: <input type="text" name="code">
                 Product Name: <input type="text" name="name">
@@ -32,40 +31,34 @@
 
         <?php
         if (isset($_POST['calculate'])) {
-            // WE USE ONE VARIABLE ($data) TO STORE EVERYTHING
             $data = [
-                'code'  => $_POST['code'],
-                'name'  => $_POST['name'],
-                'qty'   => (int)$_POST['qty'],
-                'price' => (float)$_POST['price']
+                'code' => $_POST['code'],
+                'name' => $_POST['name'],
+                'qty' => (int)$_POST['qty'],
+                'price' => (float)$_POST['price'],
             ];
 
-            // Calculate Base Total
             $data['total'] = $data['qty'] * $data['price'];
 
-            // Logic for Discount/Tax percentage based on your image table
-            if ($data['total'] < 10) { $data['percent'] = 0.10; }
-            elseif ($data['total'] < 20) { $data['percent'] = 0.20; }
-            elseif ($data['total'] < 30) { $data['percent'] = 0.30; }
-            elseif ($data['total'] < 40) { $data['percent'] = 0.40; }
-            elseif ($data['total'] < 50) { $data['percent'] = 0.50; }
-            elseif ($data['total'] < 60) { $data['percent'] = 0.60; }
-            else { $data['percent'] = 0.70; }
-
-            // Calculate final payment (Total + Tax/Discount)
-            $data['pay'] = $data['total'] + ($data['total'] * $data['percent']);
+            if ($data['qty'] > 10) {
+                $data['discount'] = $data['total'] * 0.1;
+            } elseif ($data['qty'] > 5) {
+                $data['discount'] = $data['total'] * 0.05;
+            } else {
+                $data['discount'] = 0;
+            }
         ?>
 
         <div class="output-section">
             <table>
                 <thead>
                     <tr>
-                        <th>Code</th>
-                        <th>Name</th>
-                        <th>Qty</th>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
                         <th>Price</th>
                         <th>Total</th>
-                        <th>Pay</th>
+                        <!-- <th>Discount</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -73,9 +66,9 @@
                         <td><?php echo $data['code']; ?></td>
                         <td><?php echo $data['name']; ?></td>
                         <td><?php echo $data['qty']; ?></td>
-                        <td>$<?php echo number_format($data['price'], 2); ?></td>
-                        <td>$<?php echo number_format($data['total'], 2); ?></td>
-                        <td>$<?php echo number_format($data['pay'], 2); ?></td>
+                        <td>$<?php echo $data['price']; ?></td>
+                        <td>$<?php echo $data['total']; ?></td>
+                        <!-- <td>$<?php echo $data['discount']; ?></td> -->
                     </tr>
                 </tbody>
             </table>
