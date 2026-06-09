@@ -34,6 +34,10 @@ class CartItem{
 class ShoppingCart{
     // Get store items in array to use key getId easy find
     private array $items = [];
+    public function __construct()
+    {
+        throw new \Exception('Not implemented');
+    }
     public function addProduct(Product $product, int $quantity): void{
         // condition if quantity less then 0 or equla to 0 it will show message
         if($quantity <= 0){
